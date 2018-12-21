@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template/template.xhtml">
+	<ui:define name="title">Welcome "#{loginBean.p.nom}"</ui:define>
+	<ui:define name="content">
+ 
+<h:form>
+
+<h:dataTable var="p" value="#{plongeurBean.ls}"  border="1">
+
+	<h:column>
+	<f:facet name="header">
+	<h:outputText value="Prix" />
+	</f:facet>
+	<h:outputText value="#{p.prix}" />
+	</h:column>
+	
+	
+	<h:column>
+	<f:facet name="header">
+	<h:outputText value="Niveau" />
+	</f:facet>
+	<h:outputText value="#{p.nv}" />
+	</h:column>
+	
+	<h:column>
+	<f:facet name="header">
+	<h:outputText value="Action" />
+	</f:facet>
+	<h:commandButton action="#{plongeurBean.selectMonitor(p)}" value="Select Moniteur" />/>
+	</h:column>
+
+
+</h:dataTable>
+</h:form>
+<h:form>
+
+<h:dataTable value="#{plongeurBean.m}" rendered="#{plongeurBean.b}" border="1">
+
+	<h:column>
+	<f:facet name="header">
+	<h:outputText value="Nom" />
+	</f:facet>
+	<h:outputText value="#{plongeurBean.nom}" />
+	</h:column>
+	<h:column>
+	<f:facet name="header">
+	<h:outputText value="Prenom" />
+	</f:facet>
+	<h:outputText value="#{plongeurBean.prenom}" />
+	</h:column>
+</h:dataTable>
+</h:form>
+
+
+
+</ui:define>
+</ui:composition>

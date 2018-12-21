@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	
+	<h:outputText value="Centre de Plongee"/>
+	<h:form>
+		<h:outputText value="Bienvenue #{loginbean.e.name} #{loginbean.e.usertyp}"/>
+		<h:outputText value="#{data.htmlSpace}" escape="false"/>	
+		<h:commandButton action="#{loginbean.doLogout()}" value="Logout" />
+	</h:form>
+	<br/>
+	<h:link outcome="/pages/admin/welcome" value="Page d'accueil"/>
+	<br/>
+	<h1>
+		<ui:insert name="title"></ui:insert>
+	</h1>
+
+</ui:composition>
